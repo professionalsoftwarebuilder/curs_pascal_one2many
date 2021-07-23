@@ -1,0 +1,166 @@
+object frmArtikelen: TfrmArtikelen
+  Left = 344
+  Height = 331
+  Top = 273
+  Width = 994
+  Caption = 'frmArtikelen'
+  ClientHeight = 331
+  ClientWidth = 994
+  OnShow = FormShow
+  LCLVersion = '2.0.6.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 299
+    Top = 32
+    Width = 994
+    ActivePage = tbs_detail
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabIndex = 2
+    TabOrder = 0
+    object tbs_artikelen: TTabSheet
+      Caption = 'artikelen'
+      ClientHeight = 271
+      ClientWidth = 986
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 271
+        Top = 0
+        Width = 986
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'id'
+            Width = 40
+            FieldName = 'id'
+          end        
+          item
+            Title.Caption = 'naam'
+            Width = 120
+            FieldName = 'art_naam'
+          end        
+          item
+            Title.Caption = 'code'
+            Width = 100
+            FieldName = 'art_code'
+          end>
+        DataSource = data_artikelen
+        TabOrder = 0
+      end
+    end
+    object tbs_afb: TTabSheet
+      Caption = 'afbeelding'
+      ClientHeight = 271
+      ClientWidth = 986
+      object Image1: TImage
+        Left = 0
+        Height = 271
+        Top = 0
+        Width = 986
+        Align = alClient
+      end
+    end
+    object tbs_detail: TTabSheet
+      Caption = 'detail'
+      ClientHeight = 271
+      ClientWidth = 986
+      object edit_afb: TDBEdit
+        Left = 10
+        Height = 23
+        Top = 10
+        Width = 358
+        DataField = 'art_afb'
+        DataSource = data_artikelen
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 0
+      end
+      object btn_afb: TButton
+        Left = 364
+        Height = 25
+        Top = 8
+        Width = 75
+        Caption = 'afb'
+        OnClick = btn_afbClick
+        TabOrder = 1
+      end
+      object edit_afb1: TDBEdit
+        Left = 8
+        Height = 23
+        Top = 48
+        Width = 358
+        DataField = 'art_media'
+        DataSource = data_artikelen
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 2
+      end
+      object btn_video: TButton
+        Left = 364
+        Height = 25
+        Top = 46
+        Width = 75
+        Caption = 'video'
+        OnClick = btn_videoClick
+        TabOrder = 3
+      end
+    end
+    object tbs_media: TTabSheet
+      Caption = 'media'
+      ClientHeight = 271
+      ClientWidth = 986
+      object MPlayerControl1: TMPlayerControl
+        Left = 0
+        Height = 223
+        Top = 48
+        Width = 986
+        Align = alBottom
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Loop = 0
+        Volume = 0
+      end
+      object btn_play: TButton
+        Left = 10
+        Height = 25
+        Top = 10
+        Width = 75
+        Caption = 'play'
+        OnClick = btn_playClick
+        TabOrder = 1
+      end
+    end
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 320
+    Height = 25
+    Top = 0
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = data_artikelen
+    Options = []
+    TabOrder = 1
+  end
+  object data_artikelen: TDataSource
+    DataSet = dmMain.qry_art
+    OnDataChange = data_artikelenDataChange
+    left = 256
+    top = 216
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    left = 376
+    top = 224
+  end
+  object OpenDialog1: TOpenDialog
+    left = 472
+    top = 224
+  end
+end

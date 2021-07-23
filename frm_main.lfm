@@ -1,0 +1,41 @@
+object frm_main_form: Tfrm_main_form
+  Left = 261
+  Height = 240
+  Top = 218
+  Width = 320
+  Caption = 'main_form'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '2.0.6.0'
+  object btn_klanten: TButton
+    Left = 88
+    Height = 25
+    Top = 72
+    Width = 75
+    Caption = 'klanten'
+    OnClick = btn_klantenClick
+    TabOrder = 0
+  end
+  object btn_file: TButton
+    Left = 88
+    Height = 25
+    Top = 96
+    Width = 75
+    Caption = 'file'
+    OnClick = btn_fileClick
+    TabOrder = 1
+  end
+  object btn_artikelen: TButton
+    Left = 88
+    Height = 25
+    Top = 120
+    Width = 75
+    Caption = 'artikelen'
+    OnClick = btn_artikelenClick
+    TabOrder = 2
+  end
+  object OpenDialog1: TOpenDialog
+    left = 56
+    top = 8
+  end
+end

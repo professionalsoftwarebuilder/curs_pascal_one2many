@@ -1,0 +1,127 @@
+object frmKlanten_orders: TfrmKlanten_orders
+  Left = 268
+  Height = 493
+  Top = 263
+  Width = 1276
+  Caption = 'klanten_orders'
+  ClientHeight = 493
+  ClientWidth = 1276
+  OnCreate = FormCreate
+  LCLVersion = '2.0.6.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 317
+    Top = 176
+    Width = 1276
+    ActivePage = tbs_orders
+    Align = alBottom
+    TabIndex = 1
+    TabOrder = 0
+    OnChange = PageControl1Change
+    object tbs_klanten: TTabSheet
+      Caption = 'klanten'
+      ClientHeight = 289
+      ClientWidth = 1268
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 289
+        Top = 0
+        Width = 1268
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'id'
+            Width = 40
+            FieldName = 'id'
+          end        
+          item
+            Title.Caption = 'code'
+            Width = 60
+            FieldName = 'kl_code'
+          end        
+          item
+            Title.Caption = 'voornaam'
+            Width = 180
+            FieldName = 'kl_voonaam'
+          end        
+          item
+            Title.Caption = 'achternaam'
+            Width = 180
+            FieldName = 'kl_achternaam'
+          end>
+        DataSource = DataSource1
+        TabOrder = 0
+      end
+    end
+    object tbs_orders: TTabSheet
+      Caption = 'orders'
+      ClientHeight = 289
+      ClientWidth = 1268
+      object DBGrid2: TDBGrid
+        Left = 0
+        Height = 289
+        Top = 0
+        Width = 1268
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'id'
+            Width = 40
+            FieldName = 'id'
+          end        
+          item
+            Title.Caption = 'naam'
+            Width = 160
+            FieldName = 'or_naam'
+          end        
+          item
+            Title.Caption = 'code'
+            Width = 80
+            FieldName = 'or_code'
+          end>
+        DataSource = DataSource2
+        TabOrder = 0
+      end
+    end
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 472
+    Height = 25
+    Top = 24
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = DataSource1
+    Options = []
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 144
+    Height = 25
+    Top = 80
+    Width = 75
+    Caption = 'ok'
+    ModalResult = 1
+    TabOrder = 2
+    Visible = False
+  end
+  object DataSource1: TDataSource
+    DataSet = dmMain.qry_klanten
+    left = 248
+    top = 320
+  end
+  object DataSource2: TDataSource
+    DataSet = dmMain.qry_orders
+    left = 424
+    top = 328
+  end
+end

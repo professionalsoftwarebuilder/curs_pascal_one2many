@@ -1,0 +1,330 @@
+object dmMain: TdmMain
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 261
+  VerticalOffset = 218
+  Width = 450
+  PPI = 96
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'C:\cursus_r44-pascallaserus\prj_las_one2many\databases\db_facturatie.db'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    left = 80
+    top = 40
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caCommitRetaining
+    Database = SQLite3Connection1
+    left = 213
+    top = 40
+  end
+  object qry_klanten: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'klant_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'kl_code'
+        DataType = ftString
+        Precision = -1
+        Size = 12
+      end    
+      item
+        Name = 'kl_voonaam'
+        DataType = ftString
+        Precision = -1
+        Size = 85
+      end    
+      item
+        Name = 'kl_achternaam'
+        DataType = ftString
+        Precision = -1
+        Size = 85
+      end>
+    AfterPost = qry_klantenAfterPost
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select'
+      'id,'
+      'id as klant_id,'
+      'kl_code,'
+      'kl_voonaam,'
+      'kl_achternaam'
+      'from'
+      'klanten'
+      'order by'
+      'id'
+      ''
+    )
+    Params = <>
+    left = 304
+    top = 40
+    object qry_klantenid: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object qry_klantenkl_code: TStringField
+      FieldKind = fkData
+      FieldName = 'kl_code'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object qry_klantenkl_voonaam: TStringField
+      FieldKind = fkData
+      FieldName = 'kl_voonaam'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 85
+    end
+    object qry_klantenkl_achternaam: TStringField
+      FieldKind = fkData
+      FieldName = 'kl_achternaam'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 85
+    end
+    object qry_klantenklant_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'klant_id'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qry_orders: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'fk_klanten'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'or_code'
+        DataType = ftString
+        Precision = -1
+        Size = 12
+      end    
+      item
+        Name = 'or_naam'
+        DataType = ftString
+        Precision = -1
+        Size = 85
+      end>
+    AfterInsert = qry_ordersAfterInsert
+    AfterPost = qry_ordersAfterPost
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select id,'
+      'fk_klanten,'
+      'or_code,'
+      'or_naam'
+      'from'
+      'orders'
+      'where'
+      'fk_klanten = :klant_id'
+    )
+    Params = <    
+      item
+        DataType = ftLargeint
+        Name = 'klant_id'
+        ParamType = ptInput
+      end>
+    DataSource = ds_klanten
+    left = 304
+    top = 96
+    object qry_ordersid: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object qry_ordersor_naam: TStringField
+      FieldKind = fkData
+      FieldName = 'or_naam'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 85
+    end
+    object qry_ordersor_code: TStringField
+      FieldKind = fkData
+      FieldName = 'or_code'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object qry_ordersfk_klanten: TLongintField
+      FieldKind = fkData
+      FieldName = 'fk_klanten'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object ds_klanten: TDataSource
+    DataSet = qry_klanten
+    left = 120
+    top = 96
+  end
+  object qry_art: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'art_naam'
+        DataType = ftString
+        Precision = -1
+        Size = 85
+      end    
+      item
+        Name = 'art_code'
+        DataType = ftString
+        Precision = -1
+        Size = 12
+      end    
+      item
+        Name = 'art_omschrijving'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'art_afb'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'art_media'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    AfterPost = qry_ordersAfterPost
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select'
+      'id,'
+      'art_naam,'
+      'art_code,'
+      'art_omschrijving,'
+      'cast (art_afb as varchar(200))   as art_afb,'
+      'cast (art_media as varchar(200) ) as art_media'
+      'from'
+      'artikelen'
+      'order by art_naam'
+    )
+    Params = <>
+    left = 384
+    top = 80
+    object qry_artid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object qry_artart_naam: TStringField
+      FieldKind = fkData
+      FieldName = 'art_naam'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 85
+    end
+    object qry_artart_code: TStringField
+      FieldKind = fkData
+      FieldName = 'art_code'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object qry_artart_omschrijving: TMemoField
+      FieldKind = fkData
+      FieldName = 'art_omschrijving'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object qry_artart_afb: TStringField
+      FieldKind = fkData
+      FieldName = 'art_afb'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qry_artart_media: TStringField
+      FieldKind = fkData
+      FieldName = 'art_media'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+end
