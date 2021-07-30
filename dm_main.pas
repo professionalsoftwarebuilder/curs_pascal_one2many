@@ -12,6 +12,7 @@ type
   { TdmMain }
 
   TdmMain = class(TDataModule)
+    ds_orders: TDataSource;
     ds_klanten: TDataSource;
     qry_artart_afb: TStringField;
     qry_artart_code: TStringField;
@@ -26,17 +27,25 @@ type
     qry_klantenkl_voonaam: TStringField;
     qry_ordersfk_klanten: TLongintField;
     qry_ordersid: TAutoIncField;
+    qry_ordersorder_id: TLongintField;
     qry_ordersor_code: TStringField;
     qry_ordersor_naam: TStringField;
+    qry_regelsaantal: TLongintField;
+    qry_regelsart_naam: TStringField;
+    qry_regelsfk_artikelen: TLongintField;
+    qry_regelsfk_orders: TLongintField;
+    qry_regelsid: TAutoIncField;
     SQLite3Connection1: TSQLite3Connection;
     qry_klanten: TSQLQuery;
     qry_orders: TSQLQuery;
     qry_art: TSQLQuery;
+    qry_regels: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     procedure DataModuleCreate(Sender: TObject);
     procedure qry_klantenAfterPost(DataSet: TDataSet);
     procedure qry_ordersAfterInsert(DataSet: TDataSet);
     procedure qry_ordersAfterPost(DataSet: TDataSet);
+    procedure qry_regelsAfterInsert(DataSet: TDataSet);
   private
     procedure updateall(asqlquery: TSQLQuery);
   public
@@ -52,6 +61,8 @@ implementation
 
 { TdmMain }
 
+uses frm_artikelen;
+
 procedure TdmMain.DataModuleCreate(Sender: TObject);
 begin
   SQLite3Connection1.Connected:=true;
@@ -59,6 +70,7 @@ begin
   qry_klanten.Active:=true;
   qry_orders.Active:=true;
   qry_art.active:=true;
+  qry_regels.Active:=true;
 end;
 
 procedure TdmMain.qry_klantenAfterPost(DataSet: TDataSet);
@@ -75,6 +87,13 @@ procedure TdmMain.qry_ordersAfterPost(DataSet: TDataSet);
 begin
     updateall(dataset as TSQLQuery);
 end;
+
+procedure TdmMain.qry_regelsAfterInsert(DataSet: TDataSet);
+begin
+  qry_regelsfk_orders.AsLongint:= qry_ordersid.AsLongint;
+
+end;
+
 
 procedure TdmMain.updateall(asqlquery: TSQLQuery);
 begin

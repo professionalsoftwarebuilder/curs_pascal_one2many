@@ -13,9 +13,9 @@ object frmKlanten_orders: TfrmKlanten_orders
     Height = 317
     Top = 176
     Width = 1276
-    ActivePage = tbs_orders
+    ActivePage = tbr_regels
     Align = alBottom
-    TabIndex = 1
+    TabIndex = 2
     TabOrder = 0
     OnChange = PageControl1Change
     object tbs_klanten: TTabSheet
@@ -85,6 +85,46 @@ object frmKlanten_orders: TfrmKlanten_orders
         TabOrder = 0
       end
     end
+    object tbr_regels: TTabSheet
+      Caption = 'regels'
+      ClientHeight = 289
+      ClientWidth = 1268
+      object DBGrid3: TDBGrid
+        Left = 0
+        Height = 257
+        Top = 32
+        Width = 1268
+        Align = alBottom
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'id'
+            Width = 50
+            FieldName = 'id'
+          end        
+          item
+            Title.Caption = 'aantal'
+            Width = 70
+            FieldName = 'aantal'
+          end        
+          item
+            Title.Caption = 'naam'
+            Width = 180
+            FieldName = 'art_naam'
+          end>
+        DataSource = DataSource3
+        TabOrder = 0
+      end
+      object btn_toe: TButton
+        Left = 8
+        Height = 25
+        Top = 0
+        Width = 75
+        Caption = 'toevoegen'
+        OnClick = btn_toeClick
+        TabOrder = 1
+      end
+    end
   end
   object DBNavigator1: TDBNavigator
     Left = 472
@@ -122,6 +162,11 @@ object frmKlanten_orders: TfrmKlanten_orders
   object DataSource2: TDataSource
     DataSet = dmMain.qry_orders
     left = 424
+    top = 328
+  end
+  object DataSource3: TDataSource
+    DataSet = dmMain.qry_regels
+    left = 576
     top = 328
   end
 end

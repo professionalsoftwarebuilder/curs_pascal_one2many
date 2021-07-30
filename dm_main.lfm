@@ -124,7 +124,7 @@ object dmMain: TdmMain
     FieldDefs = <    
       item
         Name = 'id'
-        DataType = ftAutoInc
+        DataType = ftInteger
         Precision = -1
       end    
       item
@@ -143,6 +143,11 @@ object dmMain: TdmMain
         DataType = ftString
         Precision = -1
         Size = 85
+      end    
+      item
+        Name = 'order_id'
+        DataType = ftInteger
+        Precision = -1
       end>
     AfterInsert = qry_ordersAfterInsert
     AfterPost = qry_ordersAfterPost
@@ -152,7 +157,8 @@ object dmMain: TdmMain
       'select id,'
       'fk_klanten,'
       'or_code,'
-      'or_naam'
+      'or_naam,'
+      'id as order_id'
       'from'
       'orders'
       'where'
@@ -205,6 +211,15 @@ object dmMain: TdmMain
       ReadOnly = False
       Required = False
     end
+    object qry_ordersorder_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'order_id'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object ds_klanten: TDataSource
     DataSet = qry_klanten
@@ -212,7 +227,6 @@ object dmMain: TdmMain
     top = 96
   end
   object qry_art: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -326,5 +340,125 @@ object dmMain: TdmMain
       Required = False
       Size = 255
     end
+  end
+  object qry_regels: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'fk_artikelen'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'fk_orders'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'aantal'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'art_naam'
+        DataType = ftString
+        Precision = -1
+        Size = 85
+      end>
+    AfterDelete = qry_ordersAfterPost
+    AfterInsert = qry_regelsAfterInsert
+    AfterPost = qry_ordersAfterPost
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select'
+      'odr.id, fk_artikelen, fk_orders, aantal, art_naam'
+      'from'
+      'order_regels as odr, artikelen as art'
+      'where'
+      '(fk_orders = :order_id)'
+      'and'
+      '(fk_artikelen = art.id)'
+      ''
+    )
+    InsertSQL.Strings = (
+      'insert into order_regels'
+      '(aantal, fk_artikelen, fk_orders)'
+      'values'
+      '(:aantal, :fk_artikelen, :fk_orders)'
+    )
+    UpdateSQL.Strings = (
+      'update order_regels set aantal = :aantal, fk_artikelen = :fk_artikelen, fk_orders = :fk_orders'
+      'where id = :id'
+    )
+    DeleteSQL.Strings = (
+      'delete from order_regels where id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'order_id'
+        ParamType = ptInput
+        Size = 4
+      end>
+    DataSource = ds_orders
+    left = 384
+    top = 40
+    object qry_regelsid: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object qry_regelsfk_artikelen: TLongintField
+      FieldKind = fkData
+      FieldName = 'fk_artikelen'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qry_regelsfk_orders: TLongintField
+      FieldKind = fkData
+      FieldName = 'fk_orders'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qry_regelsaantal: TLongintField
+      FieldKind = fkData
+      FieldName = 'aantal'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qry_regelsart_naam: TStringField
+      FieldKind = fkData
+      FieldName = 'art_naam'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 85
+    end
+  end
+  object ds_orders: TDataSource
+    DataSet = qry_orders
+    left = 208
+    top = 96
   end
 end

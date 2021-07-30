@@ -16,6 +16,7 @@ type
     btn_afb: TButton;
     btn_play: TButton;
     btn_video: TButton;
+    btn_select: TButton;
     data_artikelen: TDataSource;
     edit_afb: TDBEdit;
     DBGrid1: TDBGrid;
@@ -39,8 +40,10 @@ type
   private
 
 
+
   public
     class procedure showform();
+    class function artFrmShowmodal(): integer;
 
   end;
 
@@ -121,6 +124,19 @@ begin
   if not Assigned(frmArtikelen) then
     frmArtikelen := TfrmArtikelen.Create(Application);
   frmArtikelen.Show();
+end;
+
+class function TfrmArtikelen.artFrmShowmodal() : integer;
+var
+  Lart_form : TfrmArtikelen;
+begin
+  result :=0;
+  Lart_form := TfrmArtikelen.Create(Application);
+  if Lart_form.showmodal = mrOK then
+     begin
+        result := dmMain.qry_artid.AsLongint;
+     end;
+  Lart_form.Free;
 end;
 
 end.

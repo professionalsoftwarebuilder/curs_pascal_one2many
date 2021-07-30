@@ -9,7 +9,7 @@
         <Filename Value="prj_las_one2many.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="32"/>
       </Unit0>
       <Unit1>
         <Filename Value="frm_main.pas"/>
@@ -19,7 +19,7 @@
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="39"/>
         <CursorPos X="25" Y="59"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -29,10 +29,11 @@
         <ComponentName Value="frmKlanten_orders"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="51"/>
-        <CursorPos X="58" Y="63"/>
-        <UsageCount Value="27"/>
+        <TopLine Value="56"/>
+        <CursorPos X="74" Y="61"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -43,9 +44,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="62"/>
-        <CursorPos X="90" Y="72"/>
-        <UsageCount Value="27"/>
+        <TopLine Value="87"/>
+        <CursorPos X="3" Y="94"/>
+        <UsageCount Value="32"/>
+        <Bookmarks Count="1">
+          <Item0 Y="94" ID="1"/>
+        </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -55,14 +59,10 @@
         <ComponentName Value="frmArtikelen"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="55"/>
-        <CursorPos X="111" Y="54"/>
-        <UsageCount Value="25"/>
-        <Bookmarks Count="1">
-          <Item0 X="12" Y="72" ID="1"/>
-        </Bookmarks>
+        <TopLine Value="120"/>
+        <CursorPos X="3" Y="133"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -116,124 +116,124 @@
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="26" Column="3" TopLine="10"/>
+        <Filename Value="dm_main.pas"/>
+        <Caret Line="70" Column="36" TopLine="46"/>
       </Position1>
       <Position2>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="27" Column="3" TopLine="10"/>
+        <Filename Value="dm_main.pas"/>
+        <Caret Line="47" Column="56" TopLine="47"/>
       </Position2>
       <Position3>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="28" Column="3" TopLine="10"/>
+        <Filename Value="dm_main.pas"/>
+        <Caret Line="93" Column="46" TopLine="74"/>
       </Position3>
       <Position4>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="29" Column="3" TopLine="10"/>
+        <Filename Value="dm_main.pas"/>
+        <Caret Line="85" TopLine="74"/>
       </Position4>
       <Position5>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="30" Column="3" TopLine="10"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="61" Column="55" TopLine="47"/>
       </Position5>
       <Position6>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="31" Column="3" TopLine="10"/>
+        <Filename Value="frm_main.pas"/>
+        <Caret Line="59" Column="25" TopLine="39"/>
       </Position6>
       <Position7>
         <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="33" Column="3" TopLine="10"/>
+        <Caret Line="43" Column="21" TopLine="29"/>
       </Position7>
       <Position8>
         <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="62" Column="60" TopLine="46"/>
+        <Caret Line="127" Column="43" TopLine="114"/>
       </Position8>
       <Position9>
         <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="59" Column="52" TopLine="47"/>
+        <Caret Line="45" Column="5" TopLine="29"/>
       </Position9>
       <Position10>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="62" Column="32" TopLine="47"/>
+        <Filename Value="dm_main.pas"/>
+        <Caret Line="86" TopLine="61"/>
       </Position10>
       <Position11>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="61" Column="32" TopLine="46"/>
+        <Filename Value="dm_main.pas"/>
+        <Caret Line="8" Column="68"/>
       </Position11>
       <Position12>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="62" Column="32" TopLine="47"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="62" Column="55" TopLine="54"/>
       </Position12>
       <Position13>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="61" Column="32" TopLine="46"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="61" Column="55" TopLine="53"/>
       </Position13>
       <Position14>
         <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="63" Column="32" TopLine="48"/>
+        <Caret Line="138" Column="63" TopLine="118"/>
       </Position14>
       <Position15>
         <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="75" Column="6" TopLine="57"/>
+        <Caret Line="133" Column="14" TopLine="119"/>
       </Position15>
       <Position16>
         <Filename Value="dm_main.pas"/>
-        <Caret Line="75" TopLine="61"/>
+        <Caret Line="64" Column="20" TopLine="55"/>
       </Position16>
       <Position17>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="75" Column="6" TopLine="57"/>
+        <Filename Value="dm_main.pas"/>
+        <Caret Line="94" TopLine="87"/>
       </Position17>
       <Position18>
         <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="76" Column="6" TopLine="58"/>
+        <Caret Line="133" TopLine="120"/>
       </Position18>
       <Position19>
         <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="77" Column="6" TopLine="59"/>
+        <Caret Line="134" TopLine="120"/>
       </Position19>
       <Position20>
         <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="84" Column="6" TopLine="61"/>
+        <Caret Line="135" TopLine="120"/>
       </Position20>
       <Position21>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="78" Column="3" TopLine="61"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="61" Column="55" TopLine="53"/>
       </Position21>
       <Position22>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="79" Column="3" TopLine="62"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="68" Column="55" TopLine="60"/>
       </Position22>
       <Position23>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="80" Column="3" TopLine="63"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="59" Column="13" TopLine="55"/>
       </Position23>
       <Position24>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="82" Column="3" TopLine="65"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="62" Column="25" TopLine="43"/>
       </Position24>
       <Position25>
-        <Filename Value="dm_main.pas"/>
-        <Caret Line="76" TopLine="62"/>
+        <Filename Value="frm_artikelen.pas"/>
+        <Caret Line="135" TopLine="120"/>
       </Position25>
       <Position26>
-        <Filename Value="dm_main.pas"/>
-        <Caret Line="75" TopLine="61"/>
+        <Filename Value="frm_artikelen.pas"/>
+        <Caret Line="129" Column="37" TopLine="115"/>
       </Position26>
       <Position27>
-        <Filename Value="dm_main.pas"/>
-        <Caret Line="62" Column="38" TopLine="60"/>
+        <Filename Value="frm_artikelen.pas"/>
+        <Caret Line="46" Column="20" TopLine="35"/>
       </Position27>
       <Position28>
-        <Filename Value="dm_main.pas"/>
-        <Caret Line="63" Column="38" TopLine="61"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="49" Column="28" TopLine="49"/>
       </Position28>
       <Position29>
-        <Filename Value="dm_main.pas"/>
-        <Caret Line="64" Column="38" TopLine="62"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="61" Column="59" TopLine="49"/>
       </Position29>
       <Position30>
-        <Filename Value="frm_artikelen.pas"/>
-        <Caret Line="95" Column="100" TopLine="71"/>
+        <Filename Value="frm_klanten_orders.pas"/>
+        <Caret Line="79" Column="57" TopLine="70"/>
       </Position30>
     </JumpHistory>
     <RunParams>
@@ -241,4 +241,15 @@
       <Modes Count="0" ActiveMode=""/>
     </RunParams>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="frm_artikelen.pas"/>
+        <Line Value="135"/>
+      </Item1>
+    </BreakPoints>
+  </Debugging>
 </CONFIG>

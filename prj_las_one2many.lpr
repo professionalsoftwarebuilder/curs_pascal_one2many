@@ -18,7 +18,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TdmMain, dmMain);
   Application.CreateForm(Tfrm_main_form, frm_main_form);
-  Application.CreateForm(TfrmArtikelen, frmArtikelen);
   Application.Run;
 end.
 
